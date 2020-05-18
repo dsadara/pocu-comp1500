@@ -7,7 +7,10 @@ namespace Lab3
     {
         public static double CalculateTotalCost(StreamReader input)
         {
-            double tax, tip, foodTotalCost = 0, tempTotal;
+            double tax;
+            double tip;
+            double foodTotalCost = 0;
+            double tempTotal;
             double foodCost1 = double.Parse(input.ReadLine());
             double foodCost2 = double.Parse(input.ReadLine());
             double foodCost3 = double.Parse(input.ReadLine());
@@ -39,14 +42,16 @@ namespace Lab3
             tip = (foodCost5 + tax) * tipPercent / 100;
             tempTotal = foodCost5 + tax + tip;
             foodTotalCost += tempTotal;
-
+            
+            foodTotalCost = Math.Round(foodTotalCost, 2);
+                
             return foodTotalCost;
         }
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
         {
             double costPerPeople;
-            double People = double.Parse(input.ReadLine());
+            double people = double.Parse(input.ReadLine());
 
             costPerPeople = totalCost / People;
             costPerPeople = Math.Round(costPerPeople, 2);
@@ -56,7 +61,7 @@ namespace Lab3
 
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
-            uint PayerCount;
+            uint payerCount;
             double costPerPayer = double.Parse(input.ReadLine());
 
             PayerCount = (uint)Math.Ceiling(totalCost / costPerPayer);
