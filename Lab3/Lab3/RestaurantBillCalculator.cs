@@ -53,7 +53,7 @@ namespace Lab3
             double costPerPeople;
             double people = double.Parse(input.ReadLine());
 
-            costPerPeople = totalCost / People;
+            costPerPeople = totalCost / people;
             costPerPeople = Math.Round(costPerPeople, 2);
 
             return costPerPeople;
@@ -64,8 +64,8 @@ namespace Lab3
             uint payerCount;
             double costPerPayer = double.Parse(input.ReadLine());
 
-            PayerCount = (uint)Math.Ceiling(totalCost / costPerPayer);
-            return PayerCount;
+            payerCount = (uint)Math.Ceiling(totalCost / costPerPayer);
+            return payerCount;
         }
     }
 }
