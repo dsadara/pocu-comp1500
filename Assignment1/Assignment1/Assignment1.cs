@@ -16,25 +16,23 @@ namespace Assignment1
 
             if (width < 10)
             {
-                output.WriteLine("{1, 10} {2, 10} {3, 10}", "oct", "dec", "hex");
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", "oct", "dec", "hex");
                 output.WriteLine("---------- ---------- ----------");
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num4, 8), num4, Convert.ToString(num4, 16));
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num5, 8), num5, Convert.ToString(num5, 16));
-                output.WriteLine("{1,10} {2, 10} {3, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
+                output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
+                output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
+                output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
+                output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num4, 8), num4, Convert.ToString(num4, 16));
+                output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num5, 8), num5, Convert.ToString(num5, 16));
             }
             else
             {
-                output.WriteLine("{1, width} {2, width} {3, width}", "oct", "dec", "hex");
+                output.WriteLine("{0,10} {1, 10} {2, 10}", "oct", "dec", "hex");
                 output.WriteLine("---------- ---------- ----------");
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num4, 8), num4, Convert.ToString(num4, 16));
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num5, 8), num5, Convert.ToString(num5, 16));
-                output.WriteLine("{1,width} {2, width} {3, width}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num4, 8), num4, Convert.ToString(num4, 16));
+                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num5, 8), num5, Convert.ToString(num5, 16));
             }
         }
 
@@ -74,7 +72,6 @@ namespace Assignment1
             sum = floatNum1 + floatNum2 + floatNum3 + floatNum4 + floatNum5;
 
             average = sum / 5;
-        
 
 
             output.WriteLine($"{floatNum1,25:f3}");
@@ -82,10 +79,10 @@ namespace Assignment1
             output.WriteLine($"{floatNum3,25:f3}");
             output.WriteLine($"{floatNum4,25:f3}");
             output.WriteLine($"{floatNum5,25:f3}");
-            output.WriteLine($"Min{min,-22:f3}");
-            output.WriteLine($"Max{max,-22:f3}");
-            output.WriteLine($"Sum{sum,-22:f3}");
-            output.WriteLine($"Average{average,-18:f3}");
+            output.WriteLine($"Min{min,22:f3}");
+            output.WriteLine($"Max{max,22:f3}");
+            output.WriteLine($"Sum{sum,22:f3}");
+            output.WriteLine($"Average{average,18:f3}");
         }
     }
 }

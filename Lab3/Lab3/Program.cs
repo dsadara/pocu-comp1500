@@ -12,7 +12,9 @@ namespace Lab3
             {
                 double totalCost = RestaurantBillCalculator.CalculateTotalCost(READER);
 
+
                 double individualCost = RestaurantBillCalculator.CalculateIndividualCost(READER, totalCost);
+
 
                 uint payerCount = RestaurantBillCalculator.CalculatePayerCount(READER, totalCost);
             }
