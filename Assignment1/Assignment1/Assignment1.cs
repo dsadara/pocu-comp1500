@@ -16,8 +16,9 @@ namespace Assignment1
 
             if (width < 10)
             {
+                string repeatedString = new string('-', 10);
                 output.WriteLine("{0, 10} {1, 10} {2, 10}", "oct", "dec", "hex");
-                output.WriteLine("---------- ---------- ----------");
+                output.WriteLine($"{repeatedString} {repeatedString} {repeatedString}");
                 output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
                 output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
                 output.WriteLine("{0,10} {1, 10} {2, 10}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
@@ -26,13 +27,14 @@ namespace Assignment1
             }
             else
             {
-                output.WriteLine("{0,10} {1, 10} {2, 10}", "oct", "dec", "hex");
-                output.WriteLine("---------- ---------- ----------");
-                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num1, 8), num1, Convert.ToString(num1, 16));
-                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num2, 8), num2, Convert.ToString(num2, 16));
-                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num3, 8), num3, Convert.ToString(num3, 16));
-                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num4, 8), num4, Convert.ToString(num4, 16));
-                output.WriteLine("{0, 10} {1, 10} {2, 10}", Convert.ToString(num5, 8), num5, Convert.ToString(num5, 16));
+                string repeatedString = new string('-', width);
+                output.WriteLine("{0," + width + "} {1, " + width + "} {2, " + width + "}", "oct", "dec", "hex");
+                output.WriteLine($"{repeatedString} {repeatedString} {repeatedString}");
+                output.WriteLine("{0, " + width + "} {1, " + width + "} {2, " + width + ":X}", Convert.ToString(num1, 8), num1, num1);
+                output.WriteLine("{0, " + width + "} {1, " + width + "} {2, " + width + ":X}", Convert.ToString(num2, 8), num2, num2);
+                output.WriteLine("{0, " + width + "} {1, " + width + "} {2, " + width + ":X}", Convert.ToString(num3, 8), num3, num3);
+                output.WriteLine("{0, " + width + "} {1, " + width + "} {2, " + width + ":X}", Convert.ToString(num4, 8), num4, num4);
+                output.WriteLine("{0, " + width + "} {1, " + width + "} {2, " + width + ":X}", Convert.ToString(num5, 8), num5, num5);
             }
         }
 
