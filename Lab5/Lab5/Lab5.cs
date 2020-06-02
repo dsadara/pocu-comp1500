@@ -31,7 +31,7 @@ namespace Lab5
                     fixedRevenuePerDay = Math.Round(fixedRevenuePerDay, 2);
                     if (fixedRevenuePerDay != revenuePerDay[i])
                     {
-                       bRevenueFixed = true;
+                        bRevenueFixed = true;
                         revenuePerDay[i] = fixedRevenuePerDay;
                     }
                 }
