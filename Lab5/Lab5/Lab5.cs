@@ -7,7 +7,7 @@ namespace Lab5
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
             double fixedRevenuePerDay;
-            bool bisRevenueFixed = false;
+            bool bRevenueFixed = false;
             if (usersPerDay.Length == revenuePerDay.Length)
             {
                 for (int i = 0; i < usersPerDay.Length; ++i)
@@ -31,11 +31,11 @@ namespace Lab5
                     fixedRevenuePerDay = Math.Round(fixedRevenuePerDay, 2);
                     if (fixedRevenuePerDay != revenuePerDay[i])
                     {
-                        bisRevenueFixed = true;
+                       bRevenueFixed = true;
                         revenuePerDay[i] = fixedRevenuePerDay;
                     }
                 }
-                return bisRevenueFixed;
+                return bRevenueFixed;
             }
             return false;
         }
