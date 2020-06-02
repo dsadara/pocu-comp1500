@@ -7,35 +7,35 @@ namespace Lab5
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
             double fixedRevenuePerDay;
-            bool isRevenueFixed = false;
+            bool bisRevenueFixed = false;
             if (usersPerDay.Length == revenuePerDay.Length)
             {
                 for (int i = 0; i < usersPerDay.Length; ++i)
                 {
                     if (0 <= usersPerDay[i] && usersPerDay[i] <= 10)
                     {
-                        fixedRevenuePerDay = usersPerDay[i] /(double) 2;
+                        fixedRevenuePerDay = usersPerDay[i] / (double)2;
                     }
                     else if (10 < usersPerDay[i] && usersPerDay[i] <= 100)
                     {
-                        fixedRevenuePerDay = 16 * (double) usersPerDay[i] / 5 - 27;
+                        fixedRevenuePerDay = 16 * (double)usersPerDay[i] / 5 - 27;
                     }
                     else if (100 < usersPerDay[i] && usersPerDay[i] <= 1000)
                     {
-                        fixedRevenuePerDay = usersPerDay[i] * (double) usersPerDay[i] / 4 - 2 * (double) usersPerDay[i] - 2007;
+                        fixedRevenuePerDay = usersPerDay[i] * (double)usersPerDay[i] / 4 - 2 * (double)usersPerDay[i] - 2007;
                     }
                     else
                     {
-                        fixedRevenuePerDay = 245743 + usersPerDay[i] / (double) 4;
+                        fixedRevenuePerDay = 245743 + usersPerDay[i] / (double)4;
                     }
                     fixedRevenuePerDay = Math.Round(fixedRevenuePerDay, 2);
                     if (fixedRevenuePerDay != revenuePerDay[i])
                     {
-                        isRevenueFixed = true;
+                        bisRevenueFixed = true;
                         revenuePerDay[i] = fixedRevenuePerDay;
                     }
                 }
-                return isRevenueFixed;
+                return bisRevenueFixed;
             }
             return false;
         }
@@ -79,7 +79,7 @@ namespace Lab5
         {
             int arrayLength = revenuePerDay.Length;
             double totalRevenuePerDay = 0;
-            if (arrayLength != 0 && (0 <= start && start < arrayLength) && (0 <= end && end < arrayLength) && start < end)
+            if (arrayLength != 0 && (0 <= start && start < arrayLength) && (0 <= end && end < arrayLength) && start <= end)
             {
                 for (uint i = start; i <= end; ++i)
                 {

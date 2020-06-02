@@ -39,6 +39,12 @@ namespace Lab5
 
             totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 0, 14);
             Debug.Assert(totalRevenue == 924657.79);
+            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 0, 0);
+            Debug.Assert(totalRevenue == 10000.2);
+            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 14, 14);
+
+
+            Debug.Assert(totalRevenue == 924657.79);
         }
     }
 }
