@@ -74,7 +74,7 @@ namespace Lab6
                         }
                     }
                     break;
-                defualt:
+                default:
                     Debug.Assert(false);
                     break;
             }
