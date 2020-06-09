@@ -15,31 +15,31 @@ namespace Lab6
         {
             int i;
             int j;
-            int Row_Length = data.GetLength(0);         // static 으로 바꾸면 좋을 듯 
-            int Column_Length = data.GetLength(1);
-            int[,] dataRotated = new int[Column_Length, Row_Length];
-            for (i = 0; i < Row_Length; i++)
+            int rowLength = data.GetLength(0);         
+            int columnLength = data.GetLength(1);
+            int[,] dataRotated = new int[columnLength, rowLength];
+            for (i = 0; i < rowLength; i++)
             {
-                for (j = 0; j < Column_Length; j++)
+                for (j = 0; j < columnLength; j++)
                 {
-                    dataRotated[j, Row_Length - 1 - i] = data[i, j];
+                    dataRotated[j, rowLength - 1 - i] = data[i, j];
                 }
             }
             return dataRotated;
         }
 
-        public static void TransformArray(int[,] data, EMode eMode)     //no need ref 
+        public static void TransformArray(int[,] data, EMode eMode)
         {
             int i;
             int j;
-            int Row_Length = data.GetLength(0);         // static 으로 바꾸면 좋을 듯 
-            int Column_Length = data.GetLength(1);
-            int[,] dataCopied = new int[Row_Length, Column_Length];
+            int rowLength = data.GetLength(0);        
+            int columnLength = data.GetLength(1);
+            int[,] dataCopied = new int[rowLength, columnLength];
 
             // 배열 복사
-            for (i = 0; i < Row_Length; i++)
+            for (i = 0; i < rowLength; i++)
             {
-                for (j = 0; j < Column_Length; j++)
+                for (j = 0; j < columnLength; j++)
                 {
                     dataCopied[i, j] = data[i, j];
                 }
@@ -48,29 +48,29 @@ namespace Lab6
             switch (eMode)
             {
                 case EMode.HorizontalMirror:
-                    for (i = 0; i < Row_Length; i++)
+                    for (i = 0; i < rowLength; i++)
                     {
-                        for (j = 0; j < Column_Length; j++)
+                        for (j = 0; j < columnLength; j++)
                         {
-                            data[i, Column_Length - 1 - j] = dataCopied[i, j];
+                            data[i, columnLength - 1 - j] = dataCopied[i, j];
                         }
                     }
                     break;
                 case EMode.VerticalMirror:
-                    for (i = 0; i < Row_Length; i++)
+                    for (i = 0; i < rowLength; i++)
                     {
-                        for (j = 0; j < Column_Length; j++)
+                        for (j = 0; j < columnLength; j++)
                         {
-                            data[Row_Length - 1 - i, j] = dataCopied[i, j];
+                            data[rowLength - 1 - i, j] = dataCopied[i, j];
                         }
                     }
                     break;
                 case EMode.DiagonalShift:
-                    for (i = 0; i < Row_Length; i++)
+                    for (i = 0; i < rowLength; i++)
                     {
-                        for (j = 0; j < Column_Length; j++)
+                        for (j = 0; j < columnLength; j++)
                         {
-                            data[(i + 1) % Row_Length, (j + 1) % Column_Length] = dataCopied[i, j];
+                            data[(i + 1) % rowLength, (j + 1) % columnLength] = dataCopied[i, j];
                         }
                     }
                     break;
