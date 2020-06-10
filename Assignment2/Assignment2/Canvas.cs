@@ -1,22 +1,42 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO.Compression;
 
 namespace Assignment2
 {
     public static class Canvas
     {
-        public enum EShape
+        public static Boolean IsShape(char[,] canvas, EShape shape)
         {
-            Rectangle,
-            IsoscelesRightTriangle,
-            IsoscelesTriangle,
-            Circle
+            uint i;
+            uint j;
+            uint canvasHeight = (uint)canvas.GetLength(0);
+            uint canvasWidth = (uint)canvas.GetLength(1);
+            uint height = canvasHeight - 4;
+            uint width = canvasWidth - 4;
+            char[,] canvasCompare = new char[canvasHeight, canvasWidth]; 
+            canvasCompare = Draw(width, height, shape);
+            if (canvasCompare.GetLength(0) == 0 && canvasCompare.GetLength(1) == 0)
+            {
+                return false;
+            }
+            for (i = 0; i < canvasHeight; i++)
+            {
+                for (j = 0; j < canvasWidth; j++)
+                {
+                    if (canvas[i, j] != canvasCompare[i, j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         public static char[,] Draw(uint width, uint height, EShape shape)
         {
-            int i;
-            int j;
+            uint i;
+            uint j;
             uint canvasWidth = width + 4;
             uint canvasHeight = height + 4;
             char[,] canvasArray = new char[canvasHeight, canvasWidth];
@@ -122,11 +142,11 @@ namespace Assignment2
                         break;
                     case EShape.Circle:
                         {
-                            int x;
-                            int y;
-                            int xCentre = (int)canvasWidth / 2;
-                            int yCentre = (int)canvasHeight / 2;
-                            int r = (int) width / 2; // 변수 이름 바꾸기 
+                            uint x;
+                            uint y;
+                            uint xCentre = canvasWidth / 2;
+                            uint yCentre = canvasHeight / 2;
+                            uint r =  width / 2; // 변수 이름 바꾸기 
                             // 소수점 이하 버리는 코드 
                             if (width % 2 == 0 || width != height)
                             {
