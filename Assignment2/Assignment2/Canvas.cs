@@ -12,9 +12,13 @@ namespace Assignment2
             uint j;
             uint canvasHeight = (uint)canvas.GetLength(0);
             uint canvasWidth = (uint)canvas.GetLength(1);
+            if (canvasHeight == 0 || canvasWidth == 0)
+            {
+                return false;
+            }
             uint height = canvasHeight - 4;
             uint width = canvasWidth - 4;
-            char[,] canvasCompare = new char[canvasHeight, canvasWidth]; 
+            char[,] canvasCompare = new char[canvasHeight, canvasWidth];
             canvasCompare = Draw(width, height, shape);
             if (canvasCompare.GetLength(0) == 0 && canvasCompare.GetLength(1) == 0)
             {
@@ -82,7 +86,7 @@ namespace Assignment2
                         }
                         for (i = 0; i < canvasHeight; i++)
                         {
-                            for (j = 0;  j < canvasWidth; j++)
+                            for (j = 0; j < canvasWidth; j++)
                             {
                                 if (i == 0 || i == canvasHeight - 1)
                                 {
@@ -108,7 +112,7 @@ namespace Assignment2
                         }
                         break;
                     case EShape.IsoscelesTriangle:
-                        if (width != height * 2 -1 )
+                        if (width != height * 2 - 1)
                         {
                             char[,] zeroLengthArray = new char[0, 0];
                             return zeroLengthArray;
@@ -129,7 +133,7 @@ namespace Assignment2
                                 {
                                     canvasArray[i, j] = ' ';
                                 }
-                                else if (canvasWidth/2 - (i-2) <= j && j <= canvasWidth/2 + (i-2))
+                                else if (canvasWidth / 2 - (i - 2) <= j && j <= canvasWidth / 2 + (i - 2))
                                 {
                                     canvasArray[i, j] = '*';
                                 }
@@ -146,7 +150,7 @@ namespace Assignment2
                             uint y;
                             uint xCentre = canvasWidth / 2;
                             uint yCentre = canvasHeight / 2;
-                            uint r =  width / 2; // 변수 이름 바꾸기 
+                            uint r = width / 2; // 변수 이름 바꾸기 
                             // 소수점 이하 버리는 코드 
                             if (width % 2 == 0 || width != height)
                             {
@@ -171,7 +175,7 @@ namespace Assignment2
                                     {
                                         canvasArray[i, j] = ' ';
                                     }
-                                    else if (x*x + y*y <= r*r)
+                                    else if (x * x + y * y <= r * r)
                                     {
                                         canvasArray[i, j] = '*';
                                     }

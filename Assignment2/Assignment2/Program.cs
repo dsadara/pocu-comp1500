@@ -7,31 +7,31 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = Canvas.Draw(21, 21, EShape.Circle);
-            printCanvas(canvas);
+            char[,] canvas = Canvas.Draw(9, 0, EShape.Circle);
+            //printCanvas(canvas);
 
-            Debug.Assert(Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.Circle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
 
-            canvas = Canvas.Draw(10, 8, EShape.Rectangle);
-            printCanvas(canvas);
+            //canvas = Canvas.Draw(0, 0, EShape.Rectangle);
+            //printCanvas(canvas);
 
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
 
-            canvas = Canvas.Draw(9, 5, EShape.IsoscelesTriangle);
-            printCanvas(canvas);
+            //canvas = Canvas.Draw(0, 0, EShape.IsoscelesTriangle);
+            //printCanvas(canvas);
 
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
+            //Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
+            //Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
 
-            canvas = Canvas.Draw(8, 8, EShape.IsoscelesRightTriangle);
+            canvas = Canvas.Draw(0, 0, EShape.IsoscelesRightTriangle);
             printCanvas(canvas);
 
             Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
