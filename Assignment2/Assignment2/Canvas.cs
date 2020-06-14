@@ -12,15 +12,16 @@ namespace Assignment2
             uint j;
             uint canvasHeight = (uint)canvas.GetLength(0);
             uint canvasWidth = (uint)canvas.GetLength(1);
+            uint height = canvasHeight - 4;
+            uint width = canvasWidth - 4;
+            char[,] canvasCompared = new char[canvasHeight, canvasWidth];
+
             if (canvasHeight == 0 || canvasWidth == 0)
             {
                 return false;
             }
-            uint height = canvasHeight - 4;
-            uint width = canvasWidth - 4;
-            char[,] canvasCompare = new char[canvasHeight, canvasWidth];
-            canvasCompare = Draw(width, height, shape);
-            if (canvasCompare.GetLength(0) == 0 && canvasCompare.GetLength(1) == 0)
+            canvasCompared = Draw(width, height, shape);
+            if (canvasCompared.GetLength(0) == 0 || canvasCompared.GetLength(1) == 0)
             {
                 return false;
             }
@@ -28,7 +29,7 @@ namespace Assignment2
             {
                 for (j = 0; j < canvasWidth; j++)
                 {
-                    if (canvas[i, j] != canvasCompare[i, j])
+                    if (canvas[i, j] != canvasCompared[i, j])
                     {
                         return false;
                     }
@@ -43,15 +44,16 @@ namespace Assignment2
             uint j;
             uint canvasWidth = width + 4;
             uint canvasHeight = height + 4;
-            char[,] canvasArray = new char[canvasHeight, canvasWidth];
+            char[,] canvasArray;
 
             if (width == 0 || height == 0)
             {
-                char[,] zeroLengthArray = new char[0, 0];
-                return zeroLengthArray;
+                canvasArray = new char[0, 0];
+                return canvasArray;
             }
             else
             {
+                canvasArray = new char[canvasHeight, canvasWidth];
                 switch (shape)
                 {
                     case EShape.Rectangle:
@@ -81,8 +83,8 @@ namespace Assignment2
                     case EShape.IsoscelesRightTriangle:
                         if (width != height)
                         {
-                            char[,] zeroLengthArray = new char[0, 0];
-                            return zeroLengthArray;
+                            canvasArray = new char[0, 0];
+                            return canvasArray;
                         }
                         for (i = 0; i < canvasHeight; i++)
                         {
@@ -114,8 +116,8 @@ namespace Assignment2
                     case EShape.IsoscelesTriangle:
                         if (width != height * 2 - 1)
                         {
-                            char[,] zeroLengthArray = new char[0, 0];
-                            return zeroLengthArray;
+                            canvasArray = new char[0, 0];
+                            return canvasArray;
                         }
                         for (i = 0; i < canvasHeight; i++)
                         {
@@ -146,23 +148,22 @@ namespace Assignment2
                         break;
                     case EShape.Circle:
                         {
-                            uint x;
-                            uint y;
-                            uint xCentre = canvasWidth / 2;
-                            uint yCentre = canvasHeight / 2;
-                            uint r = width / 2; // 변수 이름 바꾸기 
-                            // 소수점 이하 버리는 코드 
+                            int xDistanceFromCenter;
+                            int yDistanceFromCenter;
+                            uint xOfCircleCenter = canvasWidth / 2;
+                            uint yOfCircleCenter = canvasHeight / 2;
+                            uint radius = width / 2;  
                             if (width % 2 == 0 || width != height)
                             {
-                                char[,] zeroLengthArray = new char[0, 0];
-                                return zeroLengthArray;
+                                canvasArray = new char[0, 0];
+                                return canvasArray;
                             }
                             for (i = 0; i < canvasHeight; i++)
                             {
                                 for (j = 0; j < canvasWidth; j++)
                                 {
-                                    x = xCentre - j;
-                                    y = yCentre - i;
+                                    xDistanceFromCenter = (int)xOfCircleCenter - (int)j;
+                                    yDistanceFromCenter = (int)yOfCircleCenter - (int)i;
                                     if (i == 0 || i == canvasHeight - 1)
                                     {
                                         canvasArray[i, j] = '-';
@@ -175,7 +176,7 @@ namespace Assignment2
                                     {
                                         canvasArray[i, j] = ' ';
                                     }
-                                    else if (x * x + y * y <= r * r)
+                                    else if (xDistanceFromCenter * xDistanceFromCenter + yDistanceFromCenter * yDistanceFromCenter <= radius * radius)
                                     {
                                         canvasArray[i, j] = '*';
                                     }
@@ -192,9 +193,7 @@ namespace Assignment2
                         break;
                 }
             }
-
             return canvasArray;
-
         }
     }
 }
