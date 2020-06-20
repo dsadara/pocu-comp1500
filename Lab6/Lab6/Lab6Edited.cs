@@ -34,7 +34,6 @@ namespace Lab6
             int j;
             int rowLength = data.GetLength(0);
             int columnLength = data.GetLength(1);
-            int[,] dataCopied = new int[rowLength, columnLength];
             int temp;
             int temp1;
             int temp2;
