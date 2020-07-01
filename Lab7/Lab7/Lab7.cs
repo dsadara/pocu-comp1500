@@ -58,11 +58,11 @@
 
             uint nextLocationRightShift = playerLocation + array[playerLocation];
             uint nextLocationLeftShift = playerLocation - array[playerLocation];
-            if (0 <= nextLocationRightShift && nextLocationRightShift <= array.Length - 1)
+            if (0 < nextLocationRightShift && nextLocationRightShift <= array.Length - 1)
             {
                 ReachZeroRecursive2(array, indexPassed, nextLocationRightShift, ref bPass, ref callCount);
             }
-            if (0 <= nextLocationLeftShift && nextLocationLeftShift <= array.Length - 1)
+            if (0 < nextLocationLeftShift && nextLocationLeftShift <= array.Length - 1)
             {
                 ReachZeroRecursive2(array, indexPassed, nextLocationLeftShift, ref bPass, ref callCount);
             }
