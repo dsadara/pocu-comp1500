@@ -42,7 +42,7 @@
             {
                 return;
             }
-            if (array[playerLocation] == 0)
+            if (playerLocation == array.Length - 1)
             {
                 bPass = true;
                 return;
