@@ -5,7 +5,7 @@
         public static bool PlayGame(uint[] array)
         {
             bool bPass = false;
-            uint[] indexPassed = new uint[20];
+            uint[] indexPassed = new uint[100];
             uint callCount = 0;
 
             // 유효하지 않은 배열 검증
