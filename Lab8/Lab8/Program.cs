@@ -7,10 +7,8 @@ namespace Lab8
     {
         static void Main(string[] args)
         {
-            string minifiedList = "      Apple|Orange|Banana     ";
+            string minifiedList = "      Apple     ";
             string prettifiedList = @"1) Apple
-2) Orange
-3) Banana
 ";
             string list = Lab8.PrettifyList(minifiedList);
             Console.WriteLine(list);
@@ -18,7 +16,7 @@ namespace Lab8
             
             Console.WriteLine("---------------------------------");
 
-            minifiedList = "          ";
+            minifiedList = "\n";
             prettifiedList = null;
             list = Lab8.PrettifyList(minifiedList);
             Console.WriteLine(list);

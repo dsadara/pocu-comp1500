@@ -6,7 +6,8 @@ namespace Lab8
     {
         public static string PrettifyList(string s)
         {
-            s = s.Trim();
+            char[] whiteSpace = new char[] {' ','\f','\n','\r', '\t', '\v'};
+            s = s.Trim(whiteSpace);
             if (s == null || s == "")
             {
                 return null;
