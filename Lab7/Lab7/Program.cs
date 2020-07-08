@@ -86,7 +86,7 @@ namespace Lab7
 
             Debug.Assert(!bPass);
 
-            array = new uint[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 };
+            array = new uint[] { 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 };
             bPass = Lab7.PlayGame(array); // true
 
             Debug.Assert(bPass);
