@@ -16,6 +16,10 @@ namespace Lab8
             {
                 return null;
             }
+            foreach (var element in whiteSpace)
+            {
+                s = s.Replace(element.ToString(), string.Empty);
+            }
             StringBuilder builder = new StringBuilder(2048);
             string[] tokenLevel1 = s.Split('|');
             for (int i = 0; i < tokenLevel1.Length; i++)
