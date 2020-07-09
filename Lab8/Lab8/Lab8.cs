@@ -16,6 +16,7 @@ namespace Lab8
             {
                 return null;
             }
+            s = s.Replace("\r\n", "");
             StringBuilder builder = new StringBuilder(2048);
             string[] tokenLevel1 = s.Split('|');
             for (int i = 0; i < tokenLevel1.Length; i++)
