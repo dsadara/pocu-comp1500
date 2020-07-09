@@ -23,7 +23,7 @@ namespace Assignment3
                 snapshot[to].Add(discs);
                 //snapshot[from].RemoveAt(snapshot[from].Count - 1);
                 snapshot[from].Remove(discs);
-                snapshots.Add(new List<int>[3] { new List<int>(snapshot[0]), new List<int>(snapshot[1]) , new List<int>(snapshot[2]) });
+                snapshots.Add(new List<int>[3] { new List<int>(snapshot[0]), new List<int>(snapshot[1]), new List<int>(snapshot[2]) });
             }
             else
             {
@@ -42,12 +42,12 @@ namespace Assignment3
                 return null;
             }
             List<List<int>[]> snapshots = new List<List<int>[]>();
-            List<int> firstPole = new List<int>(); 
+            List<int> firstPole = new List<int>();
             for (int i = numDiscs; i > 0; i--)
             {
                 firstPole.Add(i);
             }
-            List<int>[] snapshot = new List<int>[3] {firstPole, new List<int>(), new List<int>()};
+            List<int>[] snapshot = new List<int>[3] { firstPole, new List<int>(), new List<int>() };
             snapshots.Add(new List<int>[3] { new List<int>(snapshot[0]), new List<int>(snapshot[1]), new List<int>(snapshot[2]) });
             TowerOfHanoiRecursive(numDiscs, 0, 1, 2, snapshot, snapshots);
             return snapshots;
