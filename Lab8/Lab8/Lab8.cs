@@ -16,8 +16,11 @@ namespace Lab8
             {
                 return null;
             }
-            s = s.Replace("\r\n", "");
-            StringBuilder builder = new StringBuilder(2048);
+            for (int i = 1; i < whiteSpace.Length; i++)
+            {
+                s = s.Replace($"{whiteSpace[i]}", "");
+            }
+            StringBuilder builder = new StringBuilder(4096);
             string[] tokenLevel1 = s.Split('|');
             for (int i = 0; i < tokenLevel1.Length; i++)
             {

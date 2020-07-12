@@ -7,9 +7,13 @@ namespace Assignment3
 
         public static int GetNumberOfSteps(int numDiscs)
         {
-            if (numDiscs < 1)
+            if (numDiscs < 0)
             {
                 return -1;
+            }
+            if (numDiscs == 0)
+            {
+                return 0;
             }
             List<List<int>[]> snapshots = new List<List<int>[]>();
             snapshots = SolveTowerOfHanoi(numDiscs);
@@ -37,11 +41,11 @@ namespace Assignment3
 
         public static List<List<int>[]> SolveTowerOfHanoi(int numDiscs)
         {
+            List<List<int>[]> snapshots = new List<List<int>[]>();
             if (numDiscs < 1)
             {
-                return null;
+                return snapshots;
             }
-            List<List<int>[]> snapshots = new List<List<int>[]>();
             List<int> firstPole = new List<int>();
             for (int i = numDiscs; i > 0; i--)
             {
