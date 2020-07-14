@@ -7,9 +7,22 @@ namespace Lab9
     {
         public static List<int> MergeLists(List<int> sortedList1, List<int> sortedList2)
         {
+            List<int> mergedList = new List<int>();
+            if (sortedList1.Count == 0 && sortedList2.Count == 0)
+            {
+                return mergedList;
+            }
+            else if (sortedList1.Count == 0)
+            {
+                return sortedList2;
+            }
+            else if (sortedList2.Count == 0)
+            {
+                return sortedList1;
+            }
+
             int i = 0;
             int j = 0;
-            List<int> mergedList = new List<int>();
             while (true)
             {
                 //end condition
