@@ -78,16 +78,10 @@ namespace Lab9
                     if (numerator.Key == denominator.Key && denominator.Value != 0)
                     {
                         Quotient = (decimal)numerator.Value / (decimal)denominator.Value;
-                        denominatorsToRemove.Add(denominator.Key);
                         Quotient = Math.Abs(Quotient);
                         mergedDictionary.Add(numerator.Key, Quotient);
                     }
                 }
-                foreach (var denominatorToRemove in denominatorsToRemove)
-                {
-                    denominators.Remove(denominatorToRemove);
-                }
-
             }
             return mergedDictionary;
         }
