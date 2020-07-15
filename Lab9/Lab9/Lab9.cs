@@ -36,7 +36,7 @@ namespace Lab9
                 }
                 else if (j > sortedList2.Count - 1)
                 {
-                    for (; i < sortedList2.Count; i++)
+                    for (; i < sortedList1.Count; i++)
                     {
                         mergedList.Add(sortedList1[i]);
                     }
