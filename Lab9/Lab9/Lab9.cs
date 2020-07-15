@@ -70,16 +70,16 @@ namespace Lab9
         {
             Dictionary<string, decimal> mergedDictionary = new Dictionary<string, decimal>();
             List<string> denominatorsToRemove = new List<string>();
-            decimal Quotient;
+            decimal quotient;
             foreach (var numerator in numerators)
             {
                 foreach (var denominator in denominators)
                 {
                     if (numerator.Key == denominator.Key && denominator.Value != 0)
                     {
-                        Quotient = (decimal)numerator.Value / (decimal)denominator.Value;
-                        Quotient = Math.Abs(Quotient);
-                        mergedDictionary.Add(numerator.Key, Quotient);
+                        quotient = (decimal)numerator.Value / (decimal)denominator.Value;
+                        quotient = Math.Abs(quotient);
+                        mergedDictionary.Add(numerator.Key, quotient);
                     }
                 }
             }
