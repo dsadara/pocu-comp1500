@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -9,11 +10,17 @@ namespace Lab9
     {
         static void Main(string[] args)
         {
-            List<int> list1 = new List<int> { -1, -2 };
-            List<int> list2 = new List<int> { 1 };
+            List<int> list1;
+            List<int> list2;
 
-            List<int> combinedList = Lab9.MergeLists(list1, list2);
-            List<int> expectedList = new List<int> { -1, -2, 1 };
+            List<int> combinedList;
+            List<int> expectedList;
+
+            list1 = new List<int> { 1, 1, 4, 7, 8, 11, 20 };
+            list2 = new List<int> { 2, 3, 4, 5, 10, 15, 16, 21, 22 };
+
+            combinedList = Lab9.MergeLists(list1, list2);
+            expectedList = new List<int> { 1, 1, 2, 3, 4, 4, 5, 7, 8, 10, 11, 15, 16, 20, 21, 22 };
 
             Console.WriteLine($"[ {string.Join(", ", combinedList)} ]");
 
@@ -21,6 +28,52 @@ namespace Lab9
             {
                 Debug.Assert(expectedList[i] == combinedList[i]);
             }
+
+            list1 = new List<int> { 1, 1, 4 };
+            list2 = new List<int> { 2, 3, 3 };
+
+            combinedList = Lab9.MergeLists(list1, list2);
+            expectedList = new List<int> { 1, 1, 2, 3, 3, 4 };
+
+            Console.WriteLine($"[ {string.Join(", ", combinedList)} ]");
+            for (int i = 0; i < expectedList.Count; i++)
+            {
+                Debug.Assert(expectedList[i] == combinedList[i]);
+            }
+
+            list1 = new List<int> { 1, 1, 4 };
+            list2 = null;
+
+            combinedList = Lab9.MergeLists(list1, list2);
+            expectedList = new List<int> { 1, 1, 4 };
+
+            Console.WriteLine($"[ {string.Join(", ", combinedList)} ]");
+            for (int i = 0; i < expectedList.Count; i++)
+            {
+                Debug.Assert(expectedList[i] == combinedList[i]);
+            }
+
+            list1 = null;
+            list2 = new List<int> { 2, 3, 3 };
+
+            combinedList = Lab9.MergeLists(list1, list2);
+            expectedList = new List<int> { 2, 3, 3 };
+
+            Console.WriteLine($"[ {string.Join(", ", combinedList)} ]");
+            for (int i = 0; i < expectedList.Count; i++)
+            {
+                Debug.Assert(expectedList[i] == combinedList[i]);
+            }
+
+            list1 = new List<int> { };
+            list2 = new List<int> { };
+            combinedList = Lab9.MergeLists(list1, list2);
+            Debug.Assert(combinedList.Count == 0);
+
+            list1 = null;
+            list2 = null;
+            combinedList = Lab9.MergeLists(list1, list2);
+            Debug.Assert(combinedList.Count == 0);
 
             List<string> keys = new List<string> { "hello", "world", "comp1500", "intro", "to", "c#" };
             List<int> values = new List<int> { 2, 5, 10, 40, -11, -50 };
@@ -43,6 +96,22 @@ namespace Lab9
             foreach (var keyvaluePair in expectedDict)
             {
                 Debug.Assert(keyvaluePair.Value == dict[keyvaluePair.Key]);
+            }
+
+            List<string> keys2 = new List<string> { "a", "a", "b", "c", "a", "d" };
+            List<int> values2 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            Dictionary<string, int> dict2 = Lab9.CombineListsToDictionary(keys2, values2);
+            Dictionary<string, int> expectedDict2 = new Dictionary<string, int>
+            {
+                { "a", 1 },
+                { "b", 3 },
+                { "c", 4 },
+                { "d", 6 }
+            };
+            Debug.Assert(dict2.Count == expectedDict2.Count);
+            foreach (var keyvaluePair in expectedDict2)
+            {
+                Debug.Assert(keyvaluePair.Value == dict2[keyvaluePair.Key]);
             }
 
             Dictionary<string, int> numerators = new Dictionary<string, int>

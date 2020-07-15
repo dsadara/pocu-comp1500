@@ -38,7 +38,7 @@ namespace Lab9
                 {
                     for (; i < sortedList2.Count; i++)
                     {
-                        mergedList.Add(sortedList2[i]);
+                        mergedList.Add(sortedList1[i]);
                     }
                     break;
                 }
