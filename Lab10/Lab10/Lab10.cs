@@ -13,7 +13,7 @@ namespace Lab10
     {
         public uint Width { get; private set; }
         public uint Height { get; private set; }
-        private double mresult;
+        private double mResult;
 
         public Rectangle(uint width, uint height)
         {
@@ -23,14 +23,14 @@ namespace Lab10
 
         public double GetPerimeter()
         {
-            mresult = (Width + Height) * 2.0;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mResult = (Width + Height) * 2.0;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
 
         public double GetArea()
         {
-            mresult = Width * (double)Height;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mResult = Width * (double)Height;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
 
     }
@@ -39,8 +39,8 @@ namespace Lab10
     {
         public uint Width { get; private set; }
         public uint Height { get; private set; }
-        private double mresult;
-        private double mthirdSide;
+        private double mResult;
+        private double mThirdSide;
 
         public RightTriangle(uint width, uint height)
         {
@@ -50,15 +50,15 @@ namespace Lab10
 
         public double GetPerimeter()
         {
-            mthirdSide = Math.Sqrt(Height * Height + (double)Width * Width);
-            mresult = Width + Height + mthirdSide;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mThirdSide = Math.Sqrt(Height * Height + (double)Width * Width);
+            mResult = Width + Height + mThirdSide;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
 
         public double GetArea()
         {
-            mresult = Width * Height / 2.0;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mResult = Width * Height / 2.0;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
     }
 
@@ -66,7 +66,7 @@ namespace Lab10
     {
         public uint Radius { get; private set; }
         public uint Diameter { get; private set; }
-        private double mresult;
+        private double mResult;
         // private const double PI = 3.141592;
 
         public Circle(uint radius)
@@ -77,14 +77,14 @@ namespace Lab10
 
         public double GetCircumference()
         {
-            mresult = Diameter * Math.PI;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mResult = Diameter * Math.PI;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
 
         public double GetArea()
         {
-            mresult = Radius * Radius * Math.PI;
-            return Round.GetFourthDecimalPointRounded(mresult);
+            mResult = Radius * Radius * Math.PI;
+            return Round.GetFourthDecimalPointRounded(mResult);
         }
     }
 }
