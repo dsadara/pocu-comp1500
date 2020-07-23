@@ -67,7 +67,7 @@ namespace Lab10
         public uint Radius { get; private set; }
         public uint Diameter { get; private set; }
         private double mresult;
-        private const double PI = 3.141592;
+        // private const double PI = 3.141592;
 
         public Circle(uint radius)
         {
@@ -77,13 +77,13 @@ namespace Lab10
 
         public double GetCircumference()
         {
-            mresult = Diameter * PI;
+            mresult = Diameter * Math.PI;
             return Round.GetFourthDecimalPointRounded(mresult);
         }
 
         public double GetArea()
         {
-            mresult = Radius * Radius * PI;
+            mresult = Radius * Radius * Math.PI;
             return Round.GetFourthDecimalPointRounded(mresult);
         }
     }
