@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -14,7 +15,16 @@ namespace Lab11
             }
             byte[] bytes = new byte[input.Length];
             List<byte> bytesEncoded = new List<byte>();
-            input.Read(bytes, 0, bytes.Length);
+            try
+            {
+                input.Read(bytes, 0, bytes.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
             byte countingByte = bytes[0];
             byte count = 0;
             for (int i = 0; i < bytes.Length; i++)
@@ -40,7 +50,16 @@ namespace Lab11
             bytesEncoded.Add(count);
             bytesEncoded.Add(countingByte);
             bytes = bytesEncoded.ToArray();
-            output.Write(bytes, 0, bytes.Length);
+
+            try
+            {
+                output.Write(bytes, 0, bytes.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
             return true;
         }
 
@@ -52,7 +71,15 @@ namespace Lab11
             }
             byte[] bytes = new byte[input.Length];
             List<byte> bytesDecoded = new List<byte>();
-            input.Read(bytes, 0, bytes.Length);
+            try
+            {
+                input.Read(bytes, 0, bytes.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
 
             for (int i = 0; i < bytes.Length; i = i + 2)
             {
@@ -62,7 +89,15 @@ namespace Lab11
                 }
             }
             bytes = bytesDecoded.ToArray();
-            output.Write(bytes, 0, bytes.Length);
+            try
+            {
+                output.Write(bytes, 0, bytes.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
             return true;
         }
     }
