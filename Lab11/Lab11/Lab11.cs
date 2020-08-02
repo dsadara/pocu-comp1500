@@ -24,6 +24,9 @@ namespace Lab11
                     bytesEncoded.Add(count);
                     bytesEncoded.Add(countingByte);
                     count = 0;
+                    countingByte = bytes[i];
+                    count++;
+                    continue;
                 }
                 if (countingByte != bytes[i])
                 {
