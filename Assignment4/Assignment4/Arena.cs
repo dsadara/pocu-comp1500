@@ -13,6 +13,7 @@ namespace Assignment4
         public uint Turns { get; private set; }
         public uint MonsterCount { get; private set; }
         public List<Monster> monster;
+        string[] lines;
 
         public Arena(string arenaName, uint capacity)
         {
@@ -22,7 +23,11 @@ namespace Assignment4
 
         public void LoadMonsters(string filePath)
         {
-            string[] lines = File.ReadAllLines(@filePath);
+            if (!File.Exists(filePath))
+            {
+                return;
+            }
+            lines = File.ReadAllLines(filePath);
             string[] tokens;
             if (lines.Length > Capacity)
             {
@@ -44,6 +49,10 @@ namespace Assignment4
 
         public void GoToNextTurn()
         {
+            if (MonsterCount == 0)
+            {
+                return;
+            }
             if (MonsterCount == 1)
             {
                 return;

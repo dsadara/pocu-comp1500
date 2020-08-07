@@ -42,15 +42,15 @@ namespace Assignment4
 
             arena.LoadMonsters("monsters.txt");
 
-            Debug.Assert(arena.MonsterCount == 6);
-            Debug.Assert(arena.GetHealthiest().Name == "MyMonster5");
-
-            arena.GoToNextTurn();
-            arena.GoToNextTurn();
-            arena.GoToNextTurn();
-            arena.GoToNextTurn();
-
+            Debug.Assert(arena.MonsterCount == 2);
             Debug.Assert(arena.GetHealthiest().Name == "MyMonster1");
+
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+
+            System.Console.WriteLine(arena.GetHealthiest().Name);
         }
     }
 }

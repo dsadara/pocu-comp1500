@@ -40,16 +40,17 @@ namespace Assignment4
             {
                 finalDamage = 1;
             }
+            int counter = ElementType.GetCounter(otherMonster.ElementType);
 
-            if (ElementType.GetCounter(otherMonster.ElementType) == 1)
+            if (counter == 1)
             {
                 otherMonster.TakeDamage((int)(finalDamage * 1.5));
             }
-            else if (ElementType.GetCounter(otherMonster.ElementType) == 0)
+            else if (counter == 0)
             {
                 otherMonster.TakeDamage((int)(finalDamage * 0.5));
             }
-            else if (ElementType.GetCounter(otherMonster.ElementType) == -1)
+            else if (counter == -1)
             {
                 otherMonster.TakeDamage(finalDamage);
             }
