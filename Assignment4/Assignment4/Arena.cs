@@ -12,8 +12,7 @@ namespace Assignment4
         public string ArenaName { get; private set; }
         public uint Turns { get; private set; }
         public uint MonsterCount { get; private set; }
-        public List<Monster> monster;
-        string[] lines;
+        public List<Monster> Monster;
 
         public Arena(string arenaName, uint capacity)
         {
@@ -27,23 +26,23 @@ namespace Assignment4
             {
                 return;
             }
-            lines = File.ReadAllLines(filePath);
+            string[] Lines = File.ReadAllLines(filePath);
             string[] tokens;
-            if (lines.Length > Capacity)
+            if (Lines.Length > Capacity)
             {
-                monster = new List<Monster>();
+                Monster = new List<Monster>();
                 MonsterCount = Capacity;
             }
             else
             {
-                monster = new List<Monster>();
-                MonsterCount = (uint)lines.Length;
+                Monster = new List<Monster>();
+                MonsterCount = (uint)Lines.Length;
             }
 
             for (int i = 0; i < MonsterCount; i++)
             {
-                tokens = lines[i].Split(',');
-                monster.Add(new Monster(tokens[0], (EElementType)Enum.Parse(typeof(EElementType), tokens[1]), int.Parse(tokens[2]), int.Parse(tokens[3]), int.Parse(tokens[4])));
+                tokens = Lines[i].Split(',');
+                Monster.Add(new Monster(tokens[0], (EElementType)Enum.Parse(typeof(EElementType), tokens[1]), int.Parse(tokens[2]), int.Parse(tokens[3]), int.Parse(tokens[4])));
             }
         }
 
@@ -60,10 +59,10 @@ namespace Assignment4
 
             for (int i = 0; i < MonsterCount; i++)
             {
-                monster[i].Attack(monster[(i + 1) % (int)MonsterCount]);
-                if (monster[(i + 1) % (int)MonsterCount].Health <= 0)
+                Monster[i].Attack(Monster[(i + 1) % (int)MonsterCount]);
+                if (Monster[(i + 1) % (int)MonsterCount].Health <= 0)
                 {
-                    monster.RemoveAt((i + 1) % (int)MonsterCount);
+                    Monster.RemoveAt((i + 1) % (int)MonsterCount);
                     MonsterCount--;
                 }
             }
@@ -79,12 +78,12 @@ namespace Assignment4
             int healthiestMonsterindex = 0;
             for (int i = 1; i < MonsterCount; i++)
             {
-                if (monster[healthiestMonsterindex].Health < monster[i].Health)
+                if (Monster[healthiestMonsterindex].Health < Monster[i].Health)
                 {
                     healthiestMonsterindex = i;
                 }
             }
-            return monster[healthiestMonsterindex];
+            return Monster[healthiestMonsterindex];
         }
     }
 }

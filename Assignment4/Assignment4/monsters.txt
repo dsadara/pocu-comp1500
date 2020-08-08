@@ -1,2 +1,4 @@
-MyMonster1,Earth,100,20,10
-MyMonster2,Water,40,2,1
+MyMonster1,Water,99,4,0
+MyMonster2,Fire,5,0,1
+MyMonster3,Wind,99,99,99
+MyMonster4,Fire,100,10,10

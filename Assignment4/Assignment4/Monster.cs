@@ -35,24 +35,26 @@ namespace Assignment4
 
         public void Attack(Monster otherMonster)
         {
-            int finalDamage = AttackStat - otherMonster.DefenseStat;
-            if (finalDamage < 1)
+            int basicDamage = AttackStat - otherMonster.DefenseStat;
+            if (basicDamage < 1)
             {
-                finalDamage = 1;
+                basicDamage = 1;
+                otherMonster.TakeDamage(basicDamage);
+                return;
             }
             int counter = ElementType.GetCounter(otherMonster.ElementType);
 
             if (counter == 1)
             {
-                otherMonster.TakeDamage((int)(finalDamage * 1.5));
+                otherMonster.TakeDamage((int)(basicDamage * 1.5));
             }
             else if (counter == 0)
             {
-                otherMonster.TakeDamage((int)(finalDamage * 0.5));
+                otherMonster.TakeDamage((int)(basicDamage * 0.5));
             }
             else if (counter == -1)
             {
-                otherMonster.TakeDamage(finalDamage);
+                otherMonster.TakeDamage(basicDamage);
             }
         }
     }
