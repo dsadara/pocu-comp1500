@@ -26,9 +26,9 @@ namespace Assignment4
             {
                 return;
             }
-            string[] Lines = File.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines(filePath);
             string[] tokens;
-            if (Lines.Length > Capacity)
+            if (lines.Length > Capacity)
             {
                 Monster = new List<Monster>();
                 MonsterCount = Capacity;
@@ -36,12 +36,12 @@ namespace Assignment4
             else
             {
                 Monster = new List<Monster>();
-                MonsterCount = (uint)Lines.Length;
+                MonsterCount = (uint)lines.Length;
             }
 
             for (int i = 0; i < MonsterCount; i++)
             {
-                tokens = Lines[i].Split(',');
+                tokens = lines[i].Split(',');
                 Monster.Add(new Monster(tokens[0], (EElementType)Enum.Parse(typeof(EElementType), tokens[1]), int.Parse(tokens[2]), int.Parse(tokens[3]), int.Parse(tokens[4])));
             }
         }

@@ -27,6 +27,10 @@ namespace Assignment4
             {
                 return 0;
             }
+            else if (type1 == EElementType.Water && type2 == EElementType.Earth)
+            {
+                return -1;
+            }
 
             if (type1 == EElementType.Earth && type2 == EElementType.Fire)
             {
@@ -35,6 +39,10 @@ namespace Assignment4
             else if (type1 == EElementType.Earth && type2 == EElementType.Wind)
             {
                 return 0;
+            }
+            else if (type1 == EElementType.Earth && type2 == EElementType.Water)
+            {
+                return -1;
             }
 
             if (type1 == EElementType.Wind && type2 == EElementType.Earth || type2 == EElementType.Water)

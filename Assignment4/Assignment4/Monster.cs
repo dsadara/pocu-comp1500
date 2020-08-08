@@ -36,7 +36,7 @@ namespace Assignment4
         public void Attack(Monster otherMonster)
         {
             int basicDamage = AttackStat - otherMonster.DefenseStat;
-            if (basicDamage < 1)
+            if (basicDamage <= 1)
             {
                 basicDamage = 1;
                 otherMonster.TakeDamage(basicDamage);
